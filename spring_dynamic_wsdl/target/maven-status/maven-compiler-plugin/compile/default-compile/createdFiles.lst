@@ -1,0 +1,7 @@
+com\dynamic\wsdl\jaxb\generated\ObjectFactory.class
+com\dynamic\wsdl\service\SquareServiceImpl.class
+com\dynamic\wsdl\endpoint\SquareWsEndpoint.class
+com\dynamic\wsdl\jaxb\generated\SquareServiceResponse.class
+com\dynamic\wsdl\jaxb\generated\package-info.class
+com\dynamic\wsdl\jaxb\generated\SquareServiceRequest.class
+com\dynamic\wsdl\service\SquareService.class

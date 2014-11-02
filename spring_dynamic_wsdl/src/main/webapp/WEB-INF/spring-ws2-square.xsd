@@ -1,0 +1,18 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="com/dynamic/wsdl/jaxb/generated"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="SquareServiceRequest">
+		<xs:complexType>
+			<xs:sequence>
+					<xs:element type="xs:integer" name="Input" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SquareServiceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:integer" name="Output" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

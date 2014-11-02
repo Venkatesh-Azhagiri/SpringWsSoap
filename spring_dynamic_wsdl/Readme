@@ -1,0 +1,11 @@
+Maven clean
+Maven install
+Maven build -> tomcat:run
+copy the generated url and in browser followed by /getSquare.wsdl
+Generated wsdl in soap address location paste the generated url and save it.
+In soap UI create new project and import the generated wsdl
+
+<!--Optional-->
+tomcat:run -Dmaven.tomcat.port=8081
+
+deploy in tomcat server directly

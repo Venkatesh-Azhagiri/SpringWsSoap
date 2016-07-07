@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="959bb286-f8ff-4863-946b-54528c7d5420" activeEnvironment="Default" name="CRUDWebservice" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="37907a00-3eab-412f-b4af-e0b5ccac1df7" wsaVersion="NONE" name="person" type="wsdl" bindingName="{http://com/crud/person}person" soapVersion="1_1" anonymous="optional" definition="file:/F:/webservice/wsdl/person.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\F:\webservice\wsdl\person.wsdl"><con:part><con:url>file:\F:\webservice\wsdl\person.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="person" targetNamespace="http://com/crud/person" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/crud/person" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://com/crud/person">
+      <xsd:element name="addPerson">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="personId" type="xsd:int"/>
+            <xsd:element name="personName" type="xsd:string"/>
+            <xsd:element name="personAge" type="xsd:int"/>
+            <xsd:element name="personDesignation" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addPersonResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="addPersonResponse" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="modifyPerson">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="personId" type="xsd:int"/>
+            <xsd:element name="personName" type="xsd:string"></xsd:element>
+            <xsd:element name="personAge" type="xsd:int"/>
+            <xsd:element name="personDesignation" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="modifyPersonResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="modifyPersonResponse" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="viewPerson">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="personId" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="viewPersonResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="personId" type="xsd:int"/>
+            <xsd:element name="personName" type="xsd:string"/>
+            <xsd:element name="personAge" type="xsd:int"/>
+            <xsd:element name="personDesignation" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deletePerson">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="personId" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deletePersonResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="deletePersonResposne" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addPersonRequest">
+    <wsdl:part element="tns:addPerson" name="addPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addPersonResponse">
+    <wsdl:part element="tns:addPersonResponse" name="addPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="modifyPersonRequest">
+    <wsdl:part element="tns:modifyPerson" name="modifyPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="modifyPersonResponse">
+    <wsdl:part element="tns:modifyPersonResponse" name="modifyPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="viewPersonRequest">
+    <wsdl:part element="tns:viewPerson" name="viewPersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="viewPersonResponse">
+    <wsdl:part element="tns:viewPersonResponse" name="viewPersonResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonRequest">
+    <wsdl:part element="tns:deletePerson" name="deletePersonRequest"/>
+  </wsdl:message>
+  <wsdl:message name="deletePersonResponse">
+    <wsdl:part element="tns:deletePersonResponse" name="deletePersonResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="person">
+    <wsdl:operation name="addPerson">
+      <wsdl:input message="tns:addPersonRequest" name="addPersonRequest"/>
+      <wsdl:output message="tns:addPersonResponse" name="addPersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPerson">
+      <wsdl:input message="tns:modifyPersonRequest" name="modifyPersonRequest"/>
+      <wsdl:output message="tns:modifyPersonResponse" name="modifyPersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="viewPerson">
+      <wsdl:input message="tns:viewPersonRequest" name="viewPersonRequest"/>
+      <wsdl:output message="tns:viewPersonResponse" name="viewPersonResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <wsdl:input message="tns:deletePersonRequest" name="deletePersonRequest"/>
+      <wsdl:output message="tns:deletePersonResponse" name="deletePersonResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="person" type="tns:person">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viewPerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePerson">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="person">
+    <wsdl:port binding="tns:person" name="person">
+      <soap:address location="http://localhost:8081/CrudWebService/endpoints/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8081/CrudWebService/endpoints/</con:endpoint></con:endpoints><con:operation id="073425f6-827f-4fe7-8b1b-934a5d1c8b55" isOneWay="false" action="" name="addPerson" bindingOperationName="addPerson" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6517c60f-7a14-410b-a46f-e8d48b5afc15" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/CrudWebService/endpoints/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/crud/person">\r
+   <soapenv:Header>\r
+   	<wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">         
+         <wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <per:addPerson>\r
+         <per:personId>1</per:personId>\r
+         <per:personName>Test</per:personName>\r
+         <per:personAge>28</per:personAge>\r
+         <per:personDesignation>Software Engineer</per:personDesignation>\r
+      </per:addPerson>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/crud/person/person/addPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6ff38e2f-33a4-49cf-b868-aa087e02f82e" isOneWay="false" action="" name="deletePerson" bindingOperationName="deletePerson" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1aef8f3d-a60a-46cb-9123-ea99b2ca98c9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/CrudWebService/endpoints/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/crud/person">\r
+   <soapenv:Header>
+   	<wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">         
+         <wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <per:deletePerson>\r
+         <per:personId>2</per:personId>\r
+      </per:deletePerson>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/crud/person/person/deletePersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="691782ba-b79c-4d46-9e82-c9ef0f2181de" isOneWay="false" action="" name="modifyPerson" bindingOperationName="modifyPerson" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b936e678-3306-446f-8feb-575bba45192e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/CrudWebService/endpoints/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/crud/person">\r
+   <soapenv:Header>\r
+   	<wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">         
+         <wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <per:modifyPerson>\r
+         <per:personId>2</per:personId>\r
+         <per:personName>Test</per:personName>\r
+         <per:personAge>28</per:personAge>\r
+         <per:personDesignation>Executive</per:personDesignation>\r
+      </per:modifyPerson>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/crud/person/person/modifyPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4e7e3e0f-ad1a-4104-bbfb-44f387a52d9f" isOneWay="false" action="" name="viewPerson" bindingOperationName="viewPerson" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ca98147c-97b8-4468-be8e-060017591e54" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/CrudWebService/endpoints/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://com/crud/person">\r
+   <soapenv:Header>\r
+   	<wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">         
+         <wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <per:viewPerson>\r
+         <per:personId>2</per:personId>\r
+      </per:viewPerson>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://com/crud/person/person/viewPersonRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

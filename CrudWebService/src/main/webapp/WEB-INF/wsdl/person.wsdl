@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://com/crud/person" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="person"
+	targetNamespace="http://com/crud/person">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://com/crud/person">
+			<xsd:element name="addPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="personId" type="xsd:int" />
+						<xsd:element name="personName" type="xsd:string"></xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="addPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="addPersonResponse" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="modifyPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+						<xsd:element name="personName" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="modifyPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="modifyPersonResponse" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="viewPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="viewPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="personId" type="xsd:int" />
+						<xsd:element name="personName" type="xsd:string"></xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="deletePerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="deletePersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="deletePersonResposne" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="addPersonRequest">
+		<wsdl:part element="tns:addPerson" name="addPersonRequest" />
+	</wsdl:message>
+	<wsdl:message name="addPersonResponse">
+		<wsdl:part element="tns:addPersonResponse" name="addPersonResponse" />
+	</wsdl:message>
+	<wsdl:message name="modifyPersonRequest">
+		<wsdl:part element="tns:modifyPerson" name="modifyPersonRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="modifyPersonResponse">
+		<wsdl:part element="tns:modifyPersonResponse" name="modifyPersonResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="viewPersonRequest">
+		<wsdl:part name="viewPersonRequest" element="tns:viewPerson"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="viewPersonResponse">
+		<wsdl:part name="viewPersonResponse" element="tns:viewPersonResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="deletePersonRequest">
+		<wsdl:part name="deletePersonRequest" element="tns:deletePerson"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="deletePersonResponse">
+		<wsdl:part name="deletePersonResponse" element="tns:deletePersonResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="person">
+		<wsdl:operation name="addPerson">
+			<wsdl:input name="addPersonRequest" message="tns:addPersonRequest" />
+			<wsdl:output name="addPersonResponse" message="tns:addPersonResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="modifyPerson">
+			<wsdl:input name="modifyPersonRequest" message="tns:modifyPersonRequest"></wsdl:input>
+			<wsdl:output name="modifyPersonResponse" message="tns:modifyPersonResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewPerson">
+			<wsdl:input name="viewPersonRequest" message="tns:viewPersonRequest"></wsdl:input>
+			<wsdl:output name="viewPersonResponse" message="tns:viewPersonResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deletePerson">
+			<wsdl:input name="deletePersonRequest" message="tns:deletePersonRequest"></wsdl:input>
+			<wsdl:output name="deletePersonResponse" message="tns:deletePersonResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="person" type="tns:person">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="addPerson">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="modifyPerson">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewPerson">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deletePerson">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="person">
+		<wsdl:port binding="tns:person" name="person">
+			<soap:address location="http://localhost:8083/CrudWebService/endpoints/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

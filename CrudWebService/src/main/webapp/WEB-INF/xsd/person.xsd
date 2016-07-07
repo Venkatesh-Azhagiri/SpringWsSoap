@@ -1,0 +1,74 @@
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://com/crud/person">
+		<xsd:element name="addPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="personId" type="xsd:int" />
+						<xsd:element name="personName" type="xsd:string"></xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="addPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="addPersonResponse" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="modifyPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+						<xsd:element name="personName" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="modifyPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="modifyPersonResponse" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="viewPerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="viewPersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="personId" type="xsd:int" />
+						<xsd:element name="personName" type="xsd:string"></xsd:element>
+						<xsd:element name="personAge" type="xsd:int"></xsd:element>
+						<xsd:element name="personDesignation" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="deletePerson">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="personId" type="xsd:int"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="deletePersonResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="deletePersonResposne" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>

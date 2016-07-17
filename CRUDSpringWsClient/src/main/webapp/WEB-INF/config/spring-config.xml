@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:sws="http://www.springframework.org/schema/web-services"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/web-services
+       		http://www.springframework.org/schema/web-services/web-services-2.0.xsd">		
+		
+		<context:component-scan base-package="com.crud.client.controller"/>
+		<mvc:annotation-driven /> 
+		<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+    		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+   
+   <bean id = "wss4jSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+     <property name="validationActions" value="UsernameToken"/>
+     <property name="securementActions" value="UsernameToken"/>
+      <!--  <property name="timestampPrecisionInMilliseconds" value="true"/> -->
+    <property name="securementUsername" value="admin"/>
+    <property name="securementPassword" value="secret"/>
+       <property name="securementPasswordType" value="PasswordText"/>
+       <property name="securementUsernameTokenElements" value="Nonce Created"/>
+    <property name="validationCallbackHandler" ref="callbackHandler" />
+   </bean>
+   <bean id="callbackHandler" class="org.springframework.ws.soap.security.wss4j.callback.SimplePasswordValidationCallbackHandler">
+     <property name="users">
+         <props>
+             <prop key="mojo">mojopass</prop>
+             <prop key="user">pass</prop>
+         </props>
+     </property>
+ </bean>
+    		
+    		<bean id = "webServiceTemplate" class = "org.springframework.ws.client.core.WebServiceTemplate"
+    			p:marshaller-ref="jaxbMarshaller"
+    			p:unmarshaller-ref="jaxbMarshaller"
+    			p:messageSenders-ref = "messageSender"
+    			p:defaultUri="http://localhost:8081/CrudWebService/endpoints/">
+    			<constructor-arg ref = "messageFactory"/>
+    			<property name = "interceptors">
+	    			<list>
+	    				<ref local="wss4jSecurityInterceptor"/>
+	    			</list>
+    			</property>
+    		
+    		</bean>
+    		
+    		<bean id  = "jaxbMarshaller" class = "org.springframework.oxm.jaxb.Jaxb2Marshaller"
+    		p:contextPath="com.crud.jaxb"/>
+    		
+    		<bean id  = "messageSender" class = "org.springframework.ws.transport.http.CommonsHttpMessageSender"/>
+    		<bean id = "messageFactory" class = "org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+    		
+    		
+			</beans>

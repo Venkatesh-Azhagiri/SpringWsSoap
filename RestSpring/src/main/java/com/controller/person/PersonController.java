@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.model.person.Person;
 
-@Controller	
+@Controller
 public class PersonController {
 	
 	@RequestMapping(value="persons/{id}", method=RequestMethod.GET)
